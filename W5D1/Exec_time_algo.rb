@@ -23,20 +23,34 @@ end
 # p my_min(list) 
 
 
-def largest_contiguous_subsum(list) #array 
-    sub_array = []
-    idx = list.length
-    (0...idx).each do |start_idx|
-        (start_idx...idx).each do |end_idx|
-            sub_array << list[start_idx..end_idx]
+# def largest_contiguous_subsum(list) #array 
+#     sub_array = []
+#     idx = list.length
+#     (0...idx).each do |start_idx|
+#         (start_idx...idx).each do |end_idx|
+#             sub_array << list[start_idx..end_idx]
+#         end
+#     end
+#     sub_array.map{|ele| ele.sum}.max
+# end
+
+
+
+def largest_contiguous_subsum(list)
+    current_sum = 0
+    largest_sum = list.first
+
+    list.each do |ele|
+        current_sum += ele
+        if current_sum >= largest_sum
+            largest_sum = current_sum
+        end
+        if current_sum < 0
+            current_sum = 0
         end
     end
-    sub_array.map{|ele| ele.sum}.max
+    largest_sum
 end
-
-
-
-
 
 
 
