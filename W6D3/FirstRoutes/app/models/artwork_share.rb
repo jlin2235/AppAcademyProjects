@@ -12,7 +12,7 @@ class ArtworkShare < ApplicationRecord
     validates :user_id, :artwork_id, presence: true 
     validates :artwork_id, uniqueness: {scope: :user_id}
 
-    belongs_to :viewer,  ###change has many through 
+    belongs_to :viewer,  
         foreign_key: :user_id,
         class_name: :User 
 

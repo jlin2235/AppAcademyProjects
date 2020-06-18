@@ -9,7 +9,7 @@ class ArtworksharesController < ApplicationController
     def create
     artworkshare = ArtworkShare.new(artworkshare_params)
      if artworkshare.save
-        debugger
+        # debugger
         redirect_to user_artworkshares_url
      else
         render json: artworkshare.errors.full_messages, status: :unprocessable_entity
@@ -23,7 +23,7 @@ class ArtworksharesController < ApplicationController
     # end
 
     def destroy
-        debugger
+        # debugger
         @artworkshare = ArtworkShare.find(params[:id])
         @artworkshare.destroy
         redirect_to user_artworkshares_url
