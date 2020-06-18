@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_205438) do
+ActiveRecord::Schema.define(version: 2020_06_18_141541) do
 
   create_table "artwork_shares", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_205438) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artwork_id"], name: "index_artwork_shares_on_artwork_id"
+    t.index ["user_id", "artwork_id"], name: "index_artwork_shares_on_user_id_and_artwork_id", unique: true
     t.index ["user_id"], name: "index_artwork_shares_on_user_id"
   end
 

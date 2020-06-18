@@ -12,14 +12,15 @@
 class Artwork < ApplicationRecord
 
     validates :title, :image_url, :artist_id, presence: true 
-    # validates :title, uniqueness: {scope: :shared_viewers}
 
-    has_many :artwork_shares,
+    has_many :artwork_shares, 
+        dependent: :destroy,
         foreign_key: :artwork_id,
-        class_name: :ArtworkShares
+        class_name: :ArtworkShare
+        
 
      has_many :shared_viewers,
         through: :artwork_shares,
-        source: :viewers
+        source: :viewer
 
 end

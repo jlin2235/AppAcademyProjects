@@ -43,8 +43,10 @@ class UsersController < ApplicationController
     # update (you'll want to use ActiveRecord::Base#update)
     # destroy
 
+    private
+
     def user_params
-        params.require(:user).permit(:name, :email)
+        params.require(:user).permit(:username) # table has been updated redefine
     end
 
 
