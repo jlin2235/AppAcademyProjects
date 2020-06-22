@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :ensure_logged_out
+
     def new
         @user = User.new #used for partials when we want to refactor (edit/update)
         render :new
