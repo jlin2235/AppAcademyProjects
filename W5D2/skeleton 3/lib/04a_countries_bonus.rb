@@ -50,12 +50,12 @@ def largest_in_continent
     )sub_q
     )
 
-    SELECT 
-      continent,name, MAX(area)
-    FROM
-      countries  
-    Group by 
-      continent, name
+
+    SELECT continent, name, area
+    FROM (
+    SELECT continent, name, area, RANK() OVER (Partition by continent Order by area DESC) rank_area
+    FROM countries)sub_q
+    WHERE rank_area = 1
 
   SQL
 end
