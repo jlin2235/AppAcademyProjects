@@ -1,12 +1,14 @@
 import React from 'react';
-import * as Minesweeper from '../minesweeper.js'
+// import { Tile, Board as Minesweeper} from '../minesweeper.js';
+import * as Minesweeper from '../minesweeper.js';
+import Board from './board';
 
 class Game extends React.Component{
     constructor(props){
-        super(props);
+        super();
 
         this.state = {
-            board: new Minesweeper.Board
+            board: new Minesweeper.Board(10,10)
         }
 
         this.updateGame = this.updateGame.bind(this)
@@ -19,12 +21,15 @@ class Game extends React.Component{
     render() {
 
         return (
-            <Board  updateGame = {this.updateGame} boardState = {this.state.board} />
+            <Board updateGame={this.updateGame} boardState={this.state.board}/>
+            // <Board boardState = {this.state.board.grid}/>
+            // <Board />
+
         )
     }
 
 
 
-}
+};
 
 export default Game; //remove if not needed

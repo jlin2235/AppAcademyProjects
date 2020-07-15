@@ -1,8 +1,9 @@
 import React from 'react';
+// import { Tile, Board as Minesweeper } from '../minesweeper.js';
 import * as Minesweeper from '../minesweeper.js'
 
 class Tile extends React.Component{
-    constructor () {
+    constructor (props) {
         super();
     }
 
@@ -10,7 +11,7 @@ class Tile extends React.Component{
     render() {
 
         return (
-            <p>T</p> 
+            <p>T</p>  
         );
         
     }
